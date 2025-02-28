@@ -11,294 +11,385 @@ import CoreData
 import AWAREFramework
 import SafariServices
 import UserNotifications
+import BackgroundTasks
+import Foundation
+import CoreLocation
+import MapKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    let notificationExpirationTaskIdentifier = "Finalaware12345.notificationExpiration"
+    
+    var locationManager: CLLocationManager?
+    var lastKnownLocation: CLLocationCoordinate2D?
+    var neighborhoods: [MKPolygon: String] = [:]
+    var currentNeighborhood: String?
+    var timer: Timer?
+    var startTime: Date?
+
     func getUrl() -> String {
-        //Returns the URL of the AWARE study on which this application is running
-        return "https://research-dev.artsci.wustl.edu:8080/1/4lph4num3ric"
+        return "http://ec2-3-15-38-212.us-east-2.compute.amazonaws.com:8080/index.php/1/4lph4num3ric"
     }
-  
+
+    // Define time ranges for random notifications
+    let timeRanges = [
+        (startHour: 9, startMinute: 0, endHour: 11, endMinute: 0),
+        (startHour: 11, startMinute: 0, endHour: 13, endMinute: 0),
+        (startHour: 13, startMinute: 0, endHour: 17, endMinute: 0),
+        (startHour: 17, startMinute: 0, endHour: 21, endMinute: 0)
+    ]
+
+    var hasScheduledSurveys = false
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
-        let core    = AWARECore.shared()
+
+        let core = AWARECore.shared()
         let manager = AWARESensorManager.shared()
-        let study   = AWAREStudy.shared()
+        let study = AWAREStudy.shared()
         let studyurl = getUrl()
-        
-        //Declare, initialize AWARE sensors
+        // Declare and initialize AWARE sensors
         let activity = IOSActivityRecognition(awareStudy: study)
         let location = Locations(awareStudy: study)
         let fuslocation = FusedLocations(awareStudy: study)
-        //let converstations = Conversation(awareStudy: study)
-        study.setStudyURL(studyurl)
-
-        //Setup background fetching interval
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        let battery1 = Battery(awareStudy: study)
+        let acc = Accelerometer(awareStudy: study)
+        let blue = Bluetooth(awareStudy: study)
+        let devices = DeviceUsage(awareStudy: study)
+        let calls = Calls(awareStudy: study)
         
-        //Add AWARE sensors to the sensor manager
+        study.setStudyURL(studyurl)
+        AWAREStudy.shared().setAutoDBSyncIntervalWithMinutue(3)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted { print("✅ Notification permissions granted.") }
+        }
+
+        setupLocationManager()
+        scheduleSurveys()  // Ensure surveys are scheduled properly
+
+        Timer.scheduledTimer(withTimeInterval: 60 * 60, repeats: true) { _ in
+            self.scheduleSurveys()
+        }
+
+        // Add AWARE sensors to the sensor manager
         manager.add(activity)
         manager.add(location)
         manager.add(fuslocation)
-        //manager.add(conversation)
-        //manager.startAllSensors()
+        manager.add(battery1)
+        manager.add(acc)
+        manager.add(blue)
+        manager.add(calls)
+        manager.add(devices)
         
         manager.addSensors(with: study)
-        if manager.getAllSensors().count > 0 {
-            core.setAnchor()
-            if let fitbit = manager.getSensor(SENSOR_PLUGIN_FITBIT) as? Fitbit {
-                fitbit.viewController = window?.rootViewController
-            }
+        core.activate()
 
-            core.activate()
-            manager.add(AWAREEventLogger.shared())
-            manager.add(AWAREStatusMonitor.shared())
-            
-            core.requestPermissionForPushNotification { (status, error) in
-                
-            }
-        }
-        
-        
-        class AppDelegate: UIResponder, UIApplicationDelegate {
-
-            var window: UIWindow?
-
-            func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-                // Request notification permissions
-               
-             
-                
-                
-                
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                    if granted {
-                        print("Notification permissions granted.")
-                    } else if let error = error {
-                        print("Error requesting notification permissions: \(error)")
-                    }
-                }
-               
-
-                return true
-                
-            }
-            
-          
-        
-        }
-        
-        IOSESM.setESMAppearedState(false)
-
-        let key = "aware-client-v2.setting.key.is-not-first-time"
-        if(!UserDefaults.standard.bool(forKey:key)){
-            study.setCleanOldDataType(cleanOldDataTypeNever)
-            UserDefaults.standard.set(true, forKey: key)
-        }
-
-        if UserDefaults.standard.bool(forKey: AdvancedSettingsIdentifiers.statusMonitor.rawValue){
-            AWAREStatusMonitor.shared().activate(withCheckInterval: 60)
-        }
-        
-        UNUserNotificationCenter.current().delegate = self
-        
-        AWAREEventLogger.shared().logEvent(["class":"AppDelegate",
-                                            "event":"application:didFinishLaunchingWithOptions:launchOptions:"]);
-        
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-        AWAREEventLogger.shared().logEvent(["class":"AppDelegate",
-                                            "event":"applicationWillResignActive:"]);
+    // MARK: - Location Tracking Setup
+    func setupLocationManager() {
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager?.distanceFilter = 10
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.startUpdatingLocation()
+
+        loadNeighborhoods()
+        startPeriodicLocationChecks()
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        IOSESM.setESMAppearedState(false)
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        AWAREEventLogger.shared().logEvent(["class":"AppDelegate",
-                                            "event":"applicationDidEnterBackground:"]);
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            lastKnownLocation = location.coordinate
+            print("📍 Updated Location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+        }
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        AWAREEventLogger.shared().logEvent(["class":"AppDelegate",
-                                            "event":"applicationWillEnterForeground:"]);
+
+    func startPeriodicLocationChecks() {
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [weak self] _ in
+            self?.checkLocationChange()
+        }
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        AWAREEventLogger.shared().logEvent(["class":"AppDelegate",
-                                            "event":"applicationDidBecomeActive:"]);
+    func checkLocationChange() {
+        print("🔄 Running location check at \(Date())")
+
+        guard let currentLocation = lastKnownLocation else {
+            print("⚠️ No last known location available. Skipping location check.")
+            return
+        }
+
+        handleLocationUpdate(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-        AWAREUtils.sendLocalPushNotification(withTitle: NSLocalizedString("terminate_title" , comment: ""),
-                                             body: NSLocalizedString("terminate_msg" , comment: ""),
-                                             timeInterval: 1,
-                                             repeats: false)
-        AWAREEventLogger.shared().logEvent(["class":"AppDelegate",
-                                            "event":"applicationWillTerminate:"]);
-        self.saveContext()
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        AWAREEventLogger.shared().logEvent(["class":"AppDelegate",
-                                            "event":"application:open:options"]);
-        
-        if url.scheme == "fitbit" {
-            let manager = AWARESensorManager.shared()
-            if let fitbit = manager.getSensor(SENSOR_PLUGIN_FITBIT) as? Fitbit {
-                fitbit.handle(url, sourceApplication: nil, annotation: options)
-            }
-        } else if url.scheme == "aware-ssl" || url.scheme == "aware" {
-            var studyURL = url.absoluteString
-            if studyURL.prefix(9) == "aware-ssl" {
-                let range = studyURL.range(of: "aware-ssl")
-                if let range = range {
-                    studyURL = studyURL.replacingCharacters(in: range, with: "https")
+    func handleLocationUpdate(latitude: Double, longitude: Double) {
+        let locationPoint = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        var foundNeighborhood: String?
+
+        for (polygon, name) in neighborhoods {
+            if isPoint(locationPoint, insidePolygon: polygon) {
+                print("📍 Found point inside neighborhood: \(name)")
+                foundNeighborhood = name
+                
+                if currentNeighborhood == name {
+                    print("✅ Still in the same neighborhood: \(name), maintaining timer.")
+                    return
+                } else {
+                    stopTimer()
+                    startTimer(neighborhood: name)
                 }
-            } else if studyURL.prefix(5) == "aware" {
-                let range = studyURL.range(of: "aware")
-                if let range = range {
-                    studyURL = studyURL.replacingCharacters(in: range, with: "http")
-                }
+                break
             }
-            let study = AWAREStudy.shared()
-             study.join(withURL: studyURL) { (settings, status, error) in
-                if status == AwareStudyStateUpdate || status == AwareStudyStateNew {
-                    let core = AWARECore.shared()
-                    core.requestPermissionForPushNotification { (notifState, error) in
-                        core.requestPermissionForBackgroundSensing{ (locStatus) in
-                            core.activate()
-                            let manager = AWARESensorManager.shared()
-                            manager.stopAndRemoveAllSensors()
-                            manager.addSensors(with: study)
-                            if let fitbit = manager.getSensor(SENSOR_PLUGIN_FITBIT) as? Fitbit {
-                                fitbit.viewController = self.window?.rootViewController
-                            }
-                            manager.add(AWAREEventLogger.shared())
-                            manager.add(AWAREStatusMonitor.shared())
-                            manager.startAllSensors()
-                            manager.createDBTablesOnAwareServer()
-                        }
-                    }
-                }else {
-                    // print("Error: ")
+        }
+
+        if foundNeighborhood == nil && currentNeighborhood != nil {
+            stopTimer()
+        }
+    }
+
+    func isPoint(_ point: CLLocationCoordinate2D, insidePolygon polygon: MKPolygon) -> Bool {
+        let path = UIBezierPath()
+        for i in 0..<polygon.pointCount {
+            let mapPoint = polygon.points()[i].coordinate
+            if i == 0 {
+                path.move(to: CGPoint(x: mapPoint.latitude, y: mapPoint.longitude))
+            } else {
+                path.addLine(to: CGPoint(x: mapPoint.latitude, y: mapPoint.longitude))
+            }
+        }
+        path.close()
+        return path.contains(CGPoint(x: point.latitude, y: point.longitude))
+    }
+
+
+    func startTimer(neighborhood: String) {
+        currentNeighborhood = neighborhood
+        if startTime == nil {
+            startTime = Date()
+            print("⏳ Timer started for \(neighborhood). Waiting for 5 minutes.")
+        }
+
+        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            let timeSpent = Int(Date().timeIntervalSince(strongSelf.startTime ?? Date()))
+            print("⏳ Checking elapsed time in \(neighborhood): \(timeSpent) seconds")
+
+            if timeSpent >= 180 {  // 5 minutes
+                strongSelf.timer?.invalidate()
+                strongSelf.timer = nil
+                strongSelf.sendLocationNotification(neighborhood: neighborhood)
+            }
+        }
+    }
+
+    func sendLocationNotification(neighborhood: String) {
+        print("🔔 Sending notification for \(neighborhood) after 5 minutes.")
+
+        let content = UNMutableNotificationContent()
+        content.title = "Your next Survey is ready (L)"
+        content.body = "  "
+        content.sound = .default
+        content.userInfo = [
+            "url": "https://wustl.az1.qualtrics.com/jfe/form/SV_0HyB20WVoAztGTk",
+            "invisibleText": "Location"
+        ]
+        content.categoryIdentifier = "surveyCategory"
+        content.threadIdentifier = "surveyReminders"
+
+        if #available(iOS 15.0, *) {
+            content.interruptionLevel = .timeSensitive
+            content.relevanceScore = 1.0
+        }
+
+        let notificationIdentifier = UUID().uuidString
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
+
+        // Store event in AWAREEventLogger
+        let eventDetails: [String: Any] = [
+            "class": "LocationHandler",
+            "event": "location_notification_scheduled",
+            "identifier": notificationIdentifier,
+            "title": content.title,
+            "body": content.body,
+            "neighborhood": neighborhood,
+            "url": content.userInfo["url"] as! String,
+            "timestamp": Date().timeIntervalSince1970
+        ]
+        AWAREEventLogger.shared().logEvent(eventDetails)
+
+        // Schedule the notification
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("🚨 Error scheduling location notification: \(error)")
+                AWAREEventLogger.shared().logEvent([
+                    "class": "LocationHandler",
+                    "event": "location_notification_failed",
+                    "identifier": notificationIdentifier,
+                    "error": error.localizedDescription
+                ])
+            } else {
+                print("✅ Location notification scheduled with ID: \(notificationIdentifier)")
+                AWAREEventLogger.shared().logEvent([
+                    "class": "LocationHandler",
+                    "event": "location_notification_added",
+                    "identifier": notificationIdentifier
+                ])
+
+                // Ensure notification disappears after 15 minutes
+                DispatchQueue.main.asyncAfter(deadline: .now() + 900) { // 900 seconds = 15 minutes
+                    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationIdentifier])
+                    print("🗑️ Location notification expired and removed.")
+                    AWAREEventLogger.shared().logEvent([
+                        "class": "LocationHandler",
+                        "event": "location_notification_expired",
+                        "identifier": notificationIdentifier
+                    ])
                 }
             }
         }
-        
-        return true
     }
 
-    // MARK: - Core Data stack
 
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "aware_client_ios_v2")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
 
-    // MARK: - Core Data Saving support
 
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        startTime = nil
+        currentNeighborhood = nil
+    }
+
+    // MARK: - Load Neighborhoods from GeoJSON
+    func loadNeighborhoods() {
+        if let fileURL = Bundle.main.url(forResource: "Neighborhoods-4", withExtension: "geojson") {
             do {
-                try context.save()
+                let data = try Data(contentsOf: fileURL)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+
+                guard let featureCollection = json as? [String: Any],
+                      let features = featureCollection["features"] as? [[String: Any]] else { return }
+
+                for feature in features {
+                    if let properties = feature["properties"] as? [String: Any],
+                       let neighborhoodName = properties["NAMELSAD"] as? String,
+                       let geometry = feature["geometry"] as? [String: Any],
+                       let coordinatesArray = geometry["coordinates"] as? [[[[Double]]]] {
+
+                        let polygon = coordinatesArray[0][0].map {
+                            CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0])
+                        }
+                        let mkPolygon = MKPolygon(coordinates: polygon, count: polygon.count)
+                        neighborhoods[mkPolygon] = neighborhoodName
+                    }
+                }
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print("Error loading GeoJSON: \(error)")
             }
         }
     }
 
-}
+    func scheduleSurveys() {
+        if hasScheduledSurveys { return }  // Prevent duplicate scheduling
+        hasScheduledSurveys = true
+        
+        let currentHour = Calendar.current.component(.hour, from: Date())
 
-extension AppDelegate : UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                openSettingsFor notification: UNNotification?) {
-        
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        if let userInfo = notification.request.content.userInfo as? [String:Any]{
-            print(userInfo)
+        // Check if the current time falls within one of the survey time ranges
+        var isWithinRange = false
+        for range in timeRanges {
+            if currentHour >= range.startHour && currentHour < range.endHour {
+                isWithinRange = true
+                break
+            }
         }
-        completionHandler([.alert])
-    }
-    
 
-    func application(_ application: UIApplication,
-                     didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if let userInfo = userInfo as? [String:Any]{
-            // SilentPushManager().executeOperations(userInfo)
-            PushNotificationResponder().response(withPayload: userInfo)
-        }
-        
-        if AWAREStudy.shared().isDebug(){ print("didReceiveRemoteNotification:start") }
-        
-        let dispatchTime = DispatchTime.now() + 20
-        DispatchQueue.main.asyncAfter( deadline: dispatchTime ) {
+        if isWithinRange {
+            print("📅 Scheduling random survey notification within the valid time range.")
             
-            if AWAREStudy.shared().isDebug(){ print("didReceiveRemoteNotification:end") }
-            
-            completionHandler(.noData)
+            // Add a delay to prevent immediate notifications on launch
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                self.sendRandomNotification()
+            }
+        } else {
+            print("⏳ No survey scheduled yet. Current time is outside the allowed range.")
         }
     }
 
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let push = PushNotification(awareStudy: AWAREStudy.shared())
-        push.saveDeviceToken(with: deviceToken)
-        push.startSyncDB()
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        
+
+    // Function for sending a random notification
+    func sendRandomNotification() {
+        print("🔔 Sending random survey notification.")
+
+        let content = UNMutableNotificationContent()
+        content.title = "Your next Survey is ready (R)"
+        content.body = " "
+        content.sound = .default
+        content.userInfo = [
+            "url": "https://wustl.az1.qualtrics.com/jfe/form/SV_eK7CCmrAcKeNmLA",
+            "invisibleText": "Random"
+        ]
+        content.categoryIdentifier = "surveyCategory"
+        content.threadIdentifier = "surveyReminders"
+
+        if #available(iOS 15.0, *) {
+            content.interruptionLevel = .timeSensitive
+            content.relevanceScore = 1.0
+        }
+
+        let notificationIdentifier = UUID().uuidString
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
+
+        // Store event in AWAREEventLogger
+        let eventDetails: [String: Any] = [
+            "class": "AppDelegate",
+            "event": "random_notification_scheduled",
+            "identifier": notificationIdentifier,
+            "title": content.title,
+            "body": content.body,
+            "url": content.userInfo["url"] as! String,
+            "timestamp": Date().timeIntervalSince1970
+        ]
+        AWAREEventLogger.shared().logEvent(eventDetails)
+
+        // Schedule the notification
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("🚨 Error scheduling random notification: \(error)")
+                AWAREEventLogger.shared().logEvent([
+                    "class": "AppDelegate",
+                    "event": "random_notification_failed",
+                    "identifier": notificationIdentifier,
+                    "error": error.localizedDescription
+                ])
+            } else {
+                print("✅ Random notification scheduled with ID: \(notificationIdentifier)")
+                AWAREEventLogger.shared().logEvent([
+                    "class": "AppDelegate",
+                    "event": "random_notification_added",
+                    "identifier": notificationIdentifier
+                ])
+
+                // Ensure notification disappears after 15 minutes
+                DispatchQueue.main.asyncAfter(deadline: .now() + 900) { // 900 seconds = 15 minutes
+                    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationIdentifier])
+                    print("🗑️ Random notification expired and removed.")
+                    AWAREEventLogger.shared().logEvent([
+                        "class": "AppDelegate",
+                        "event": "random_notification_expired",
+                        "identifier": notificationIdentifier
+                    ])
+                }
+            }
+        }
     }
 }
