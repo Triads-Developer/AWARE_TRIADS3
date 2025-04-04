@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gpx version="1.1" creator="ChatGPT" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Geofencing Simulation Route</name>
+    <trkseg>
+      <trkpt lat="38.630100" lon="-89.939000"><time>2025-02-27T12:00:00Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.941000"><time>2025-02-27T12:00:30Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.945600"><time>2025-02-27T12:01:00Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.950200"><time>2025-02-27T12:01:30Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.954800"><time>2025-02-27T12:02:00Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.959400"><time>2025-02-27T12:02:30Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.964000"><time>2025-02-27T12:03:00Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.968600"><time>2025-02-27T12:03:30Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.973200"><time>2025-02-27T12:04:00Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.977800"><time>2025-02-27T12:04:30Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.982400"><time>2025-02-27T12:05:00Z</time></trkpt>
+      <trkpt lat="38.630000" lon="-89.987000"><time>2025-02-27T12:05:30Z</time></trkpt>
+      <trkpt lat="38.629333" lon="-89.998000"><time>2025-02-27T12:06:00Z</time></trkpt>
+      <trkpt lat="38.628667" lon="-90.009000"><time>2025-02-27T12:06:30Z</time></trkpt>
+      <trkpt lat="38.628000" lon="-90.020000"><time>2025-02-27T12:07:00Z</time></trkpt>
+      <trkpt lat="38.626850" lon="-90.019300"><time>2025-02-27T12:07:30Z</time></trkpt>
+      <trkpt lat="38.625700" lon="-90.018600"><time>2025-02-27T12:08:00Z</time></trkpt>
+      <trkpt lat="38.624550" lon="-90.017900"><time>2025-02-27T12:08:30Z</time></trkpt>
+      <trkpt lat="38.623400" lon="-90.017200"><time>2025-02-27T12:09:00Z</time></trkpt>
+      <trkpt lat="38.622250" lon="-90.016500"><time>2025-02-27T12:09:30Z</time></trkpt>
+      <trkpt lat="38.621100" lon="-90.015800"><time>2025-02-27T12:10:00Z</time></trkpt>
+      <trkpt lat="38.619950" lon="-90.015100"><time>2025-02-27T12:10:30Z</time></trkpt>
+      <trkpt lat="38.618800" lon="-90.014400"><time>2025-02-27T12:11:00Z</time></trkpt>
+      <trkpt lat="38.617650" lon="-90.013700"><time>2025-02-27T12:11:30Z</time></trkpt>
+      <trkpt lat="38.616500" lon="-90.013000"><time>2025-02-27T12:12:00Z</time></trkpt>
+      <trkpt lat="38.613188" lon="-90.005750"><time>2025-02-27T12:12:30Z</time></trkpt>
+      <trkpt lat="38.609875" lon="-89.998500"><time>2025-02-27T12:13:00Z</time></trkpt>
+      <trkpt lat="38.606563" lon="-89.991250"><time>2025-02-27T12:13:30Z</time></trkpt>
+      <trkpt lat="38.603250" lon="-89.984000"><time>2025-02-27T12:14:00Z</time></trkpt>
+      <trkpt lat="38.599938" lon="-89.976750"><time>2025-02-27T12:14:30Z</time></trkpt>
+      <trkpt lat="38.596625" lon="-89.969500"><time>2025-02-27T12:15:00Z</time></trkpt>
+      <trkpt lat="38.593313" lon="-89.962250"><time>2025-02-27T12:15:30Z</time></trkpt>
+      <trkpt lat="38.590000" lon="-89.955000"><time>2025-02-27T12:16:00Z</time></trkpt>
+      <trkpt lat="38.588545" lon="-89.953636"><time>2025-02-27T12:16:30Z</time></trkpt>
+      <trkpt lat="38.587091" lon="-89.952273"><time>2025-02-27T12:17:00Z</time></trkpt>
+      <trkpt lat="38.585636" lon="-89.950909"><time>2025-02-27T12:17:30Z</time></trkpt>
+      <trkpt lat="38.584182" lon="-89.949546"><time>2025-02-27T12:18:00Z</time></trkpt>
+      <trkpt lat="38.582727" lon="-89.948182"><time>2025-02-27T12:18:30Z</time></trkpt>
+      <trkpt lat="38.581273" lon="-89.946818"><time>2025-02-27T12:19:00Z</time></trkpt>
+      <trkpt lat="38.579818" lon="-89.945455"><time>2025-02-27T12:19:30Z</time></trkpt>
+      <trkpt lat="38.578364" lon="-89.944091"><time>2025-02-27T12:20:00Z</time></trkpt>
+      <trkpt lat="38.576909" lon="-89.942728"><time>2025-02-27T12:20:30Z</time></trkpt>
+      <trkpt lat="38.575455" lon="-89.941364"><time>2025-02-27T12:21:00Z</time></trkpt>
+      <trkpt lat="38.574000" lon="-89.940000"><time>2025-02-27T12:21:30Z</time></trkpt>
+      <trkpt lat="38.572000" lon="-89.938000"><time>2025-02-27T12:22:00Z</time></trkpt>
+    </trkseg>
+  </trk>
+  <wpt lat="38.630000" lon="-89.987000">
+    <name>Notification - Census Tract 5034.04</name>
+    <time>2025-02-27T12:05:30Z</time>
+  </wpt>
+  <wpt lat="38.616500" lon="-90.013000">
+    <name>Notification - Census Tract 5034.11</name>
+    <time>2025-02-27T12:12:00Z</time>
+  </wpt>
+  <wpt lat="38.575455" lon="-89.941364">
+    <name>Notification - Census Tract 5034.14</name>
+    <time>2025-02-27T12:21:30Z</time>
+  </wpt>
+</gpx>
