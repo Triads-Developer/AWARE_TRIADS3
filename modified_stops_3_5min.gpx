@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" creator="mapstogpx.com" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    
+    
+    
+    <time>2025-04-16T13:28:00Z</time>
+  </metadata>
+  <wpt lat="38.6511679" lon="-90.2640523">
+    <name>Boost Mobile</name>
+    <desc>Boost Mobile, 5000B Delmar Blvd, St. Louis, MO 63108</desc>
+    <time>2025-04-16T12:04:00Z</time>
+  </wpt>
+  <wpt lat="38.6351811" lon="-90.2629602">
+    <name>Washington University in St. Louis Department of Medicine</name>
+    <desc>Washington University in St. Louis Department of Medicine, St. Louis, MO 63110</desc>
+    <time>2025-04-16T13:04:00Z</time>
+  </wpt>
+  <wpt lat="38.6089611" lon="-90.2117506">
+    <name>Interstate 55</name>
+    <desc>I-55, St. Louis, MO 63104</desc>
+  </wpt>
+  <wpt lat="38.6349169" lon="-90.2909775">
+    <name>Saint Louis Zoo</name>
+    <desc>Saint Louis Zoo, 1 Government Dr, St. Louis, MO 63110</desc>
+  </wpt>
+  <wpt lat="38.609489" lon="-90.2893635">
+    <name>Chris' Pancake &amp; Dining</name>
+    <desc>Chris' Pancake &amp; Dining, 5980 Southwest Ave, St. Louis, MO 63139</desc>
+  </wpt>
+  <wpt lat="38.620314" lon="-90.207373">
+    <name>Bitcoin Depot - Bitcoin ATM</name>
+    <desc>Bitcoin Depot - Bitcoin ATM, 1525 Chouteau Ave, St. Louis, MO 63103</desc>
+  </wpt>
+  <wpt lat="38.6511679" lon="-90.2640523">
+    <name>Boost Mobile</name>
+    <desc>Boost Mobile, 5000B Delmar Blvd, St. Louis, MO 63108</desc>
+  </wpt>
+  <wpt lat="38.6406585" lon="-90.2348394">
+    <name>Contemporary Art Museum St. Louis</name>
+    <desc>Contemporary Art Museum St. Louis, 3750 Washington Ave, St. Louis, MO 63108</desc>
+  </wpt>
+  <wpt lat="38.6277735" lon="-90.2075416">
+    <name>St. Louis Aquarium at Union Station</name>
+    <desc>St. Louis Aquarium at Union Station, 201 S 18th St, St. Louis, MO 63103</desc>
+  </wpt>
+<rte>
+  <name>DrivingStLouis</name>
+  <rtept lat="38.651347" lon="-90.2640256">
+    <name>RP001</name>
+  </rtept>
+  <rtept lat="38.6512676" lon="-90.2635757">
+    <name>RP002</name>
+  </rtept>
+  <rtept lat="38.6397707" lon="-90.2657616">
+    <name>RP003</name>
+  </rtept>
+  <rtept lat="38.6382846" lon="-90.2593439">
+    <name>RP004</name>
+  </rtept>
+  <rtept lat="38.634927" lon="-90.2597466">
+    <name>RP005</name>
+  </rtept>
+  <rtept lat="38.6351539" lon="-90.2616102">
+    <name>RP006</name>
+  </rtept>
+  <rtept lat="38.634927" lon="-90.2597466">
+    <name>RP007</name>
+  </rtept>
+  <rtept lat="38.6305552" lon="-90.2607886">
+    <name>RP008</name>
+  </rtept>
+  <rtept lat="38.6295295" lon="-90.2560578">
+    <name>RP009</name>
+  </rtept>
+  <rtept lat="38.6221787" lon="-90.255807">
+    <name>RP010</name>
+  </rtept>
+  <rtept lat="38.6182606" lon="-90.2603365">
+    <name>RP011</name>
+  </rtept>
+  <rtept lat="38.6180098" lon="-90.2591714">
+    <name>RP012</name>
+  </rtept>
+  <rtept lat="38.61817" lon="-90.2568534">
+    <name>RP013</name>
+  </rtept>
+  <rtept lat="38.6122619" lon="-90.2150113">
+    <name>RP014</name>
+  </rtept>
+  <rtept lat="38.5985213" lon="-90.2158199">
+    <name>RP015</name>
+  </rtept>
+  <rtept lat="38.5970892" lon="-90.2166802">
+    <name>RP016</name>
+  </rtept>
+  <rtept lat="38.5968297" lon="-90.2168097">
+    <name>RP017</name>
+  </rtept>
+  <rtept lat="38.5964662" lon="-90.2154964">
+    <name>RP018</name>
+  </rtept>
+  <rtept lat="38.5966956" lon="-90.2154152">
+    <name>RP019</name>
+  </rtept>
+  <rtept lat="38.6085927" lon="-90.2121322">
+    <name>RP020</name>
+  </rtept>
+  <rtept lat="38.6089611" lon="-90.2117506">
+    <name>RP021</name>
+  </rtept>
+  <rtept lat="38.6181666" lon="-90.1908928">
+    <name>RP022</name>
+  </rtept>
+  <rtept lat="38.6193664" lon="-90.1900801">
+    <name>RP023</name>
+  </rtept>
+  <rtept lat="38.6211739" lon="-90.1884603">
+    <name>RP024</name>
+  </rtept>
+  <rtept lat="38.6239948" lon="-90.1880038">
+    <name>RP025</name>
+  </rtept>
+  <rtept lat="38.6245582" lon="-90.1903657">
+    <name>RP026</name>
+  </rtept>
+  <rtept lat="38.6209054" lon="-90.1918432">
+    <name>RP027</name>
+  </rtept>
+  <rtept lat="38.6221538" lon="-90.1961405">
+    <name>RP028</name>
+  </rtept>
+  <rtept lat="38.6311167" lon="-90.2831073">
+    <name>RP029</name>
+  </rtept>
+  <rtept lat="38.6322349" lon="-90.2854235">
+    <name>RP030</name>
+  </rtept>
+  <rtept lat="38.6326526" lon="-90.285907">
+    <name>RP031</name>
+  </rtept>
+  <rtept lat="38.6327842" lon="-90.2857957">
+    <name>RP032</name>
+  </rtept>
+  <rtept lat="38.6330189" lon="-90.285518">
+    <name>RP033</name>
+  </rtept>
+  <rtept lat="38.6333341" lon="-90.2926897">
+    <name>RP034</name>
+  </rtept>
+  <rtept lat="38.6332355" lon="-90.2926606">
+    <name>RP035</name>
+  </rtept>
+  <rtept lat="38.6331287" lon="-90.2926292">
+    <name>RP036</name>
+  </rtept>
+  <rtept lat="38.6331105" lon="-90.2927239">
+    <name>RP037</name>
+  </rtept>
+  <rtept lat="38.6326611" lon="-90.2927906">
+    <name>RP038</name>
+  </rtept>
+  <rtept lat="38.6325339" lon="-90.2912058">
+    <name>RP039</name>
+  </rtept>
+  <rtept lat="38.6330655" lon="-90.2911995">
+    <name>RP040</name>
+  </rtept>
+  <rtept lat="38.6330784" lon="-90.2891373">
+    <name>RP041</name>
+  </rtept>
+  <rtept lat="38.6331277" lon="-90.2861303">
+    <name>RP042</name>
+  </rtept>
+  <rtept lat="38.6328419" lon="-90.2858749">
+    <name>RP043</name>
+  </rtept>
+  <rtept lat="38.6105886" lon="-90.288079">
+    <name>RP044</name>
+  </rtept>
+  <rtept lat="38.6096829" lon="-90.2894564">
+    <name>RP045</name>
+  </rtept>
+  <rtept lat="38.6095502" lon="-90.2892919">
+    <name>RP046</name>
+  </rtept>
+  <rtept lat="38.6088444" lon="-90.28841">
+    <name>RP047</name>
+  </rtept>
+  <rtept lat="38.6179634" lon="-90.287619">
+    <name>RP048</name>
+  </rtept>
+  <rtept lat="38.6188957" lon="-90.2852428">
+    <name>RP049</name>
+  </rtept>
+  <rtept lat="38.6126937" lon="-90.2164405">
+    <name>RP050</name>
+  </rtept>
+  <rtept lat="38.6136469" lon="-90.2113401">
+    <name>RP051</name>
+  </rtept>
+  <rtept lat="38.6134659" lon="-90.2099059">
+    <name>RP052</name>
+  </rtept>
+  <rtept lat="38.619376" lon="-90.208006">
+    <name>RP053</name>
+  </rtept>
+  <rtept lat="38.6197184" lon="-90.2077763">
+    <name>RP054</name>
+  </rtept>
+  <rtept lat="38.6198811" lon="-90.2073142">
+    <name>RP055</name>
+  </rtept>
+  <rtept lat="38.6222119" lon="-90.2185248">
+    <name>RP056</name>
+  </rtept>
+  <rtept lat="38.6277473" lon="-90.2175092">
+    <name>RP057</name>
+  </rtept>
+  <rtept lat="38.6286282" lon="-90.2209124">
+    <name>RP058</name>
+  </rtept>
+  <rtept lat="38.6321293" lon="-90.2628006">
+    <name>RP059</name>
+  </rtept>
+  <rtept lat="38.6319322" lon="-90.2650626">
+    <name>RP060</name>
+  </rtept>
+  <rtept lat="38.632177" lon="-90.2660616">
+    <name>RP061</name>
+  </rtept>
+  <rtept lat="38.6512676" lon="-90.2635757">
+    <name>RP062</name>
+  </rtept>
+  <rtept lat="38.651347" lon="-90.2640256">
+    <name>RP063</name>
+  </rtept>
+  <rtept lat="38.6516102" lon="-90.264075">
+    <name>RP064</name>
+  </rtept>
+  <rtept lat="38.6433421" lon="-90.2377874">
+    <name>RP065</name>
+  </rtept>
+  <rtept lat="38.6424104" lon="-90.2384255">
+    <name>RP066</name>
+  </rtept>
+  <rtept lat="38.6407923" lon="-90.2347355">
+    <name>RP067</name>
+  </rtept>
+  <rtept lat="38.6350923" lon="-90.2131963">
+    <name>RP068</name>
+  </rtept>
+  <rtept lat="38.6310897" lon="-90.2155058">
+    <name>RP069</name>
+  </rtept>
+</rte>
+</gpx>
+ 
