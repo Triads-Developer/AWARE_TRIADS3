@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6346096cc79c113391cf8945ce6d33aa {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_6346096cc79c113391cf8945ce6d33aa" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6346096cc79c113391cf8945ce6d33aa = L.map(
+                "map_6346096cc79c113391cf8945ce6d33aa",
+                {
+                    center: [38.63106998888889, -90.24810115555556],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 17,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aa4d3fc4a5327979d684009696c9293e = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var marker_8cbc5f655305b50e695f34abccb80ea1 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_685ca5b7010b2ff32d4e735721f4d949 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8cbc5f655305b50e695f34abccb80ea1.setIcon(icon_685ca5b7010b2ff32d4e735721f4d949);
+        
+    
+        var popup_55af8f65ce554482ad79297ade2bfa56 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_62490c88c513a08d082b02dbe49c16f7 = $(`<div id="html_62490c88c513a08d082b02dbe49c16f7" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 14:11:59<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_55af8f65ce554482ad79297ade2bfa56.setContent(html_62490c88c513a08d082b02dbe49c16f7);
+        
+
+        marker_8cbc5f655305b50e695f34abccb80ea1.bindPopup(popup_55af8f65ce554482ad79297ade2bfa56)
+        ;
+
+        
+    
+    
+            marker_8cbc5f655305b50e695f34abccb80ea1.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9a27df045e2b914a0c94b4e68a1b4a5b = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_cfb9bdbe93f828e95e0277e3c0fc40d3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9a27df045e2b914a0c94b4e68a1b4a5b.setIcon(icon_cfb9bdbe93f828e95e0277e3c0fc40d3);
+        
+    
+        var popup_b0d0386cd5a0c38c56b51cce9cebba26 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3469bce904939289fd7fe0489acba205 = $(`<div id="html_3469bce904939289fd7fe0489acba205" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 14:27:46<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_b0d0386cd5a0c38c56b51cce9cebba26.setContent(html_3469bce904939289fd7fe0489acba205);
+        
+
+        marker_9a27df045e2b914a0c94b4e68a1b4a5b.bindPopup(popup_b0d0386cd5a0c38c56b51cce9cebba26)
+        ;
+
+        
+    
+    
+            marker_9a27df045e2b914a0c94b4e68a1b4a5b.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7308581101a887fd6fa841f537481f86 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_c5e1f5a78a98068d473a08f29805d61f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7308581101a887fd6fa841f537481f86.setIcon(icon_c5e1f5a78a98068d473a08f29805d61f);
+        
+    
+        var popup_13cc666c3fd3e88f8ce82bc60395961e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7dcff34af3f7178e9b0157e60bac299b = $(`<div id="html_7dcff34af3f7178e9b0157e60bac299b" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 14:40:11<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_13cc666c3fd3e88f8ce82bc60395961e.setContent(html_7dcff34af3f7178e9b0157e60bac299b);
+        
+
+        marker_7308581101a887fd6fa841f537481f86.bindPopup(popup_13cc666c3fd3e88f8ce82bc60395961e)
+        ;
+
+        
+    
+    
+            marker_7308581101a887fd6fa841f537481f86.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c04e789e353cfd0724160032d9a64778 = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_645039413e8249391cc62baceee653cd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c04e789e353cfd0724160032d9a64778.setIcon(icon_645039413e8249391cc62baceee653cd);
+        
+    
+        var popup_1e099ca70a9e62aa9cf59adca0473d7f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_52790b6d141664ee8fb5506ca53e9269 = $(`<div id="html_52790b6d141664ee8fb5506ca53e9269" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 14:55:58<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_1e099ca70a9e62aa9cf59adca0473d7f.setContent(html_52790b6d141664ee8fb5506ca53e9269);
+        
+
+        marker_c04e789e353cfd0724160032d9a64778.bindPopup(popup_1e099ca70a9e62aa9cf59adca0473d7f)
+        ;
+
+        
+    
+    
+            marker_c04e789e353cfd0724160032d9a64778.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_10dbe2a9f1f65f6b2ddc769539da46aa = L.marker(
+                [38.637149129564335, -90.264298611673],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_250f788b3444112181dea7ef9371b74c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_10dbe2a9f1f65f6b2ddc769539da46aa.setIcon(icon_250f788b3444112181dea7ef9371b74c);
+        
+    
+        var popup_d68bfaf3d69eea0c8bc4bb9afb3b8fd6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_440b3b36dd2a4dacec1b798d6030f48a = $(`<div id="html_440b3b36dd2a4dacec1b798d6030f48a" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 15:08:23<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_d68bfaf3d69eea0c8bc4bb9afb3b8fd6.setContent(html_440b3b36dd2a4dacec1b798d6030f48a);
+        
+
+        marker_10dbe2a9f1f65f6b2ddc769539da46aa.bindPopup(popup_d68bfaf3d69eea0c8bc4bb9afb3b8fd6)
+        ;
+
+        
+    
+    
+            marker_10dbe2a9f1f65f6b2ddc769539da46aa.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9ffa994801bc4fb1e2f91010cbc54b25 = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_9f19a85eea1ad8359821f09b6ee0a902 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9ffa994801bc4fb1e2f91010cbc54b25.setIcon(icon_9f19a85eea1ad8359821f09b6ee0a902);
+        
+    
+        var popup_0e44d78397288a861c24a6187d22e803 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_04b35de18969755dada8279c82b44a90 = $(`<div id="html_04b35de18969755dada8279c82b44a90" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 15:24:10<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_0e44d78397288a861c24a6187d22e803.setContent(html_04b35de18969755dada8279c82b44a90);
+        
+
+        marker_9ffa994801bc4fb1e2f91010cbc54b25.bindPopup(popup_0e44d78397288a861c24a6187d22e803)
+        ;
+
+        
+    
+    
+            marker_9ffa994801bc4fb1e2f91010cbc54b25.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d783e9d6236b1f653a41206583abfec4 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_f1608889101bc45b8f0e98cc657cc5ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d783e9d6236b1f653a41206583abfec4.setIcon(icon_f1608889101bc45b8f0e98cc657cc5ea);
+        
+    
+        var popup_52822c4895f69cb7823e10cc8954b93b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_99152388acf4e11def0c4875d699296e = $(`<div id="html_99152388acf4e11def0c4875d699296e" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 15:36:35<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_52822c4895f69cb7823e10cc8954b93b.setContent(html_99152388acf4e11def0c4875d699296e);
+        
+
+        marker_d783e9d6236b1f653a41206583abfec4.bindPopup(popup_52822c4895f69cb7823e10cc8954b93b)
+        ;
+
+        
+    
+    
+            marker_d783e9d6236b1f653a41206583abfec4.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5da3dc34ad4d9bbde652edc24a774c3b = L.marker(
+                [38.63610963252551, -90.2625018958739],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_d958306c873313b8752b2243d8214251 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5da3dc34ad4d9bbde652edc24a774c3b.setIcon(icon_d958306c873313b8752b2243d8214251);
+        
+    
+        var popup_e7dac4df03a58e51c52cb99e34c52916 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2a952b574002a017058a370e0f1d7504 = $(`<div id="html_2a952b574002a017058a370e0f1d7504" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 15:51:22<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_e7dac4df03a58e51c52cb99e34c52916.setContent(html_2a952b574002a017058a370e0f1d7504);
+        
+
+        marker_5da3dc34ad4d9bbde652edc24a774c3b.bindPopup(popup_e7dac4df03a58e51c52cb99e34c52916)
+        ;
+
+        
+    
+    
+            marker_5da3dc34ad4d9bbde652edc24a774c3b.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4a7ebf259160dae8f3e0c60f1c1a1575 = L.marker(
+                [38.63724838250488, -90.26409648875345],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_b2935ffc0bd59d0ff616c0202c53b5d6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4a7ebf259160dae8f3e0c60f1c1a1575.setIcon(icon_b2935ffc0bd59d0ff616c0202c53b5d6);
+        
+    
+        var popup_4b0bf1bf62bb146edb661f73d507bfc7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b9b17cededdde782e322c1f29f468b09 = $(`<div id="html_b9b17cededdde782e322c1f29f468b09" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 16:03:47<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_4b0bf1bf62bb146edb661f73d507bfc7.setContent(html_b9b17cededdde782e322c1f29f468b09);
+        
+
+        marker_4a7ebf259160dae8f3e0c60f1c1a1575.bindPopup(popup_4b0bf1bf62bb146edb661f73d507bfc7)
+        ;
+
+        
+    
+    
+            marker_4a7ebf259160dae8f3e0c60f1c1a1575.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2ee87ab45bfc92b7a02739c9b1f27458 = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_78aa358cf11f6c3dbac6c003e9af0080 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_2ee87ab45bfc92b7a02739c9b1f27458.setIcon(icon_78aa358cf11f6c3dbac6c003e9af0080);
+        
+    
+        var popup_f476e921291823a3793ef2138e9f369d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9d0abb41769cab337a8b85c180fa0e72 = $(`<div id="html_9d0abb41769cab337a8b85c180fa0e72" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 16:20:34<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_f476e921291823a3793ef2138e9f369d.setContent(html_9d0abb41769cab337a8b85c180fa0e72);
+        
+
+        marker_2ee87ab45bfc92b7a02739c9b1f27458.bindPopup(popup_f476e921291823a3793ef2138e9f369d)
+        ;
+
+        
+    
+    
+            marker_2ee87ab45bfc92b7a02739c9b1f27458.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ee6fed35619a1b96990518a5a90b7104 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_206b2988ccaeb549ec210e26a2a17008 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ee6fed35619a1b96990518a5a90b7104.setIcon(icon_206b2988ccaeb549ec210e26a2a17008);
+        
+    
+        var popup_3d368708f35ee21a2799802591b8444f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5aafaf4fd412e37eebb1fa063d697f93 = $(`<div id="html_5aafaf4fd412e37eebb1fa063d697f93" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 16:32:59<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_3d368708f35ee21a2799802591b8444f.setContent(html_5aafaf4fd412e37eebb1fa063d697f93);
+        
+
+        marker_ee6fed35619a1b96990518a5a90b7104.bindPopup(popup_3d368708f35ee21a2799802591b8444f)
+        ;
+
+        
+    
+    
+            marker_ee6fed35619a1b96990518a5a90b7104.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_22a86831a341de03f4c6bf84db46ce36 = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_3dac703c8b7fd088f2130d522cb1ac81 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_22a86831a341de03f4c6bf84db46ce36.setIcon(icon_3dac703c8b7fd088f2130d522cb1ac81);
+        
+    
+        var popup_9905018f73693defd44456d1c53423c4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4efaeaa79f700529f0e2fb8bf25ed4e5 = $(`<div id="html_4efaeaa79f700529f0e2fb8bf25ed4e5" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 16:48:46<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_9905018f73693defd44456d1c53423c4.setContent(html_4efaeaa79f700529f0e2fb8bf25ed4e5);
+        
+
+        marker_22a86831a341de03f4c6bf84db46ce36.bindPopup(popup_9905018f73693defd44456d1c53423c4)
+        ;
+
+        
+    
+    
+            marker_22a86831a341de03f4c6bf84db46ce36.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0b5d55e101afb588a925fa489fb80622 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_64b14558c67fb38e5f0b6d3604a59c8c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0b5d55e101afb588a925fa489fb80622.setIcon(icon_64b14558c67fb38e5f0b6d3604a59c8c);
+        
+    
+        var popup_3325a814e2a701f3d542e69b5542a356 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8cd50c8df926c4e7d028c29a754a84f2 = $(`<div id="html_8cd50c8df926c4e7d028c29a754a84f2" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 17:01:11<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_3325a814e2a701f3d542e69b5542a356.setContent(html_8cd50c8df926c4e7d028c29a754a84f2);
+        
+
+        marker_0b5d55e101afb588a925fa489fb80622.bindPopup(popup_3325a814e2a701f3d542e69b5542a356)
+        ;
+
+        
+    
+    
+            marker_0b5d55e101afb588a925fa489fb80622.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f7d7ceca69e5b69586052d766d8a0b4f = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_95591cb96dcfa1cd5345c2b540d05fa3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f7d7ceca69e5b69586052d766d8a0b4f.setIcon(icon_95591cb96dcfa1cd5345c2b540d05fa3);
+        
+    
+        var popup_3b4680d68e12dc3079165ccc9c8ceb4d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_467f8f33ee5a57a300190b438aa9d8a8 = $(`<div id="html_467f8f33ee5a57a300190b438aa9d8a8" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 17:16:58<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_3b4680d68e12dc3079165ccc9c8ceb4d.setContent(html_467f8f33ee5a57a300190b438aa9d8a8);
+        
+
+        marker_f7d7ceca69e5b69586052d766d8a0b4f.bindPopup(popup_3b4680d68e12dc3079165ccc9c8ceb4d)
+        ;
+
+        
+    
+    
+            marker_f7d7ceca69e5b69586052d766d8a0b4f.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cd11df9df485ffdb4608f5567ffe822a = L.marker(
+                [38.63673552278936, -90.26244613703265],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_f74ec4a718eaf8784a1633104ba00ab9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cd11df9df485ffdb4608f5567ffe822a.setIcon(icon_f74ec4a718eaf8784a1633104ba00ab9);
+        
+    
+        var popup_fccd3268227e4062f087d219dc59d07a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8ec5685206d2cb6a68ae31f83fd3fd24 = $(`<div id="html_8ec5685206d2cb6a68ae31f83fd3fd24" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 17:25:05<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_fccd3268227e4062f087d219dc59d07a.setContent(html_8ec5685206d2cb6a68ae31f83fd3fd24);
+        
+
+        marker_cd11df9df485ffdb4608f5567ffe822a.bindPopup(popup_fccd3268227e4062f087d219dc59d07a)
+        ;
+
+        
+    
+    
+            marker_cd11df9df485ffdb4608f5567ffe822a.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_846de0a8f3f79038e2b18872e9a0ac87 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_50ac22de13c46871bf48ae1d72015d34 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_846de0a8f3f79038e2b18872e9a0ac87.setIcon(icon_50ac22de13c46871bf48ae1d72015d34);
+        
+    
+        var popup_d739154698e20289cc55b5400cd60d2f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_748ea180350d9e1821d3c32c6ee104b1 = $(`<div id="html_748ea180350d9e1821d3c32c6ee104b1" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 17:29:23<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_d739154698e20289cc55b5400cd60d2f.setContent(html_748ea180350d9e1821d3c32c6ee104b1);
+        
+
+        marker_846de0a8f3f79038e2b18872e9a0ac87.bindPopup(popup_d739154698e20289cc55b5400cd60d2f)
+        ;
+
+        
+    
+    
+            marker_846de0a8f3f79038e2b18872e9a0ac87.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5be58ca3f6a1d15ec7360ad78494db7d = L.marker(
+                [38.63610963252551, -90.2625018958739],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_e615502c1993871762807c6f1e203101 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5be58ca3f6a1d15ec7360ad78494db7d.setIcon(icon_e615502c1993871762807c6f1e203101);
+        
+    
+        var popup_cb95d267e7e6c01f45ad216e6626f473 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f8f4e88073a1e043ba8687a51c2976c2 = $(`<div id="html_f8f4e88073a1e043ba8687a51c2976c2" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 17:44:10<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_cb95d267e7e6c01f45ad216e6626f473.setContent(html_f8f4e88073a1e043ba8687a51c2976c2);
+        
+
+        marker_5be58ca3f6a1d15ec7360ad78494db7d.bindPopup(popup_cb95d267e7e6c01f45ad216e6626f473)
+        ;
+
+        
+    
+    
+            marker_5be58ca3f6a1d15ec7360ad78494db7d.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3d1ad6e50774709c3775862410387609 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_ff55b200c13c995079383fcb1e5acca9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3d1ad6e50774709c3775862410387609.setIcon(icon_ff55b200c13c995079383fcb1e5acca9);
+        
+    
+        var popup_24ed322e8fcc396a618a076fd989b6dd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dfe9f58401492389c45b49a9396dd4aa = $(`<div id="html_dfe9f58401492389c45b49a9396dd4aa" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 17:57:35<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_24ed322e8fcc396a618a076fd989b6dd.setContent(html_dfe9f58401492389c45b49a9396dd4aa);
+        
+
+        marker_3d1ad6e50774709c3775862410387609.bindPopup(popup_24ed322e8fcc396a618a076fd989b6dd)
+        ;
+
+        
+    
+    
+            marker_3d1ad6e50774709c3775862410387609.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c51f5c3afcc2fa3ce25832274a5a18c = L.marker(
+                [38.63623280009882, -90.26306549796774],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_95a20b5df527059a6ded2b2848fe577d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6c51f5c3afcc2fa3ce25832274a5a18c.setIcon(icon_95a20b5df527059a6ded2b2848fe577d);
+        
+    
+        var popup_6f61b525fb9bfa65811132eae3b8bb08 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_be8bc7953b129f0fd8401186e9d639ed = $(`<div id="html_be8bc7953b129f0fd8401186e9d639ed" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 18:08:38<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_6f61b525fb9bfa65811132eae3b8bb08.setContent(html_be8bc7953b129f0fd8401186e9d639ed);
+        
+
+        marker_6c51f5c3afcc2fa3ce25832274a5a18c.bindPopup(popup_6f61b525fb9bfa65811132eae3b8bb08)
+        ;
+
+        
+    
+    
+            marker_6c51f5c3afcc2fa3ce25832274a5a18c.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_92ce7c4e97263f57531cd4e90b840f0e = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_9cd2f35ab1895a25b78a6d00dd12534d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_92ce7c4e97263f57531cd4e90b840f0e.setIcon(icon_9cd2f35ab1895a25b78a6d00dd12534d);
+        
+    
+        var popup_38b11e684166fc8feae5d66d795c0302 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_19e4a3f6cfd0ed1532c3de601fcbdb8e = $(`<div id="html_19e4a3f6cfd0ed1532c3de601fcbdb8e" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 18:13:22<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_38b11e684166fc8feae5d66d795c0302.setContent(html_19e4a3f6cfd0ed1532c3de601fcbdb8e);
+        
+
+        marker_92ce7c4e97263f57531cd4e90b840f0e.bindPopup(popup_38b11e684166fc8feae5d66d795c0302)
+        ;
+
+        
+    
+    
+            marker_92ce7c4e97263f57531cd4e90b840f0e.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2b7628d3eada2a1e40c5c5cb5ede2483 = L.marker(
+                [38.63673552278936, -90.26244613703265],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_6fe6ab8991519effeb2e0be6832dcabc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_2b7628d3eada2a1e40c5c5cb5ede2483.setIcon(icon_6fe6ab8991519effeb2e0be6832dcabc);
+        
+    
+        var popup_f9e45ec843ac18718d4b7d6581a1558d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3f6a1a17531747d29b4dedab30f0e352 = $(`<div id="html_3f6a1a17531747d29b4dedab30f0e352" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 18:21:29<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_f9e45ec843ac18718d4b7d6581a1558d.setContent(html_3f6a1a17531747d29b4dedab30f0e352);
+        
+
+        marker_2b7628d3eada2a1e40c5c5cb5ede2483.bindPopup(popup_f9e45ec843ac18718d4b7d6581a1558d)
+        ;
+
+        
+    
+    
+            marker_2b7628d3eada2a1e40c5c5cb5ede2483.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b7b81d01ac118c8ee3a03c54c56c456c = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_3ac48dad2e09e955a8838a2ba5385e69 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b7b81d01ac118c8ee3a03c54c56c456c.setIcon(icon_3ac48dad2e09e955a8838a2ba5385e69);
+        
+    
+        var popup_5cc8527f340d4ca7f3e4d8a0819e7d40 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_70703aa04199b1bd9be48570e4150211 = $(`<div id="html_70703aa04199b1bd9be48570e4150211" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 18:25:47<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_5cc8527f340d4ca7f3e4d8a0819e7d40.setContent(html_70703aa04199b1bd9be48570e4150211);
+        
+
+        marker_b7b81d01ac118c8ee3a03c54c56c456c.bindPopup(popup_5cc8527f340d4ca7f3e4d8a0819e7d40)
+        ;
+
+        
+    
+    
+            marker_b7b81d01ac118c8ee3a03c54c56c456c.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cee587f883db6c37c5210fc94239dae4 = L.marker(
+                [38.63623280009882, -90.26306549796774],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_9b09138870171d80c5c1ddd3ddc746f0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cee587f883db6c37c5210fc94239dae4.setIcon(icon_9b09138870171d80c5c1ddd3ddc746f0);
+        
+    
+        var popup_72fa1119399de8628e5c1fe2013baf43 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_19b2145d448e186f53d49c5ebbe7afbb = $(`<div id="html_19b2145d448e186f53d49c5ebbe7afbb" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 18:36:50<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_72fa1119399de8628e5c1fe2013baf43.setContent(html_19b2145d448e186f53d49c5ebbe7afbb);
+        
+
+        marker_cee587f883db6c37c5210fc94239dae4.bindPopup(popup_72fa1119399de8628e5c1fe2013baf43)
+        ;
+
+        
+    
+    
+            marker_cee587f883db6c37c5210fc94239dae4.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_83250d4f3371f2eefd3fae3f356e8eb2 = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_95db7a2f357df3fbe26a165790ee1b55 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_83250d4f3371f2eefd3fae3f356e8eb2.setIcon(icon_95db7a2f357df3fbe26a165790ee1b55);
+        
+    
+        var popup_b3baed25e246d8377d2f8928e9d20460 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bfe695d3b7c67df551400f39f264f1a6 = $(`<div id="html_bfe695d3b7c67df551400f39f264f1a6" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 18:41:34<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_b3baed25e246d8377d2f8928e9d20460.setContent(html_bfe695d3b7c67df551400f39f264f1a6);
+        
+
+        marker_83250d4f3371f2eefd3fae3f356e8eb2.bindPopup(popup_b3baed25e246d8377d2f8928e9d20460)
+        ;
+
+        
+    
+    
+            marker_83250d4f3371f2eefd3fae3f356e8eb2.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fa31386ed90a6e70413c4368fbe78b97 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_84b798f80f900e3afc4c0709b03f5a46 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fa31386ed90a6e70413c4368fbe78b97.setIcon(icon_84b798f80f900e3afc4c0709b03f5a46);
+        
+    
+        var popup_fa4553e25658143b9391776e489d7fef = L.popup({"maxWidth": "100%"});
+
+        
+            var html_387c3457ba0a1ce5efaa4b17a61ea765 = $(`<div id="html_387c3457ba0a1ce5efaa4b17a61ea765" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 18:53:59<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_fa4553e25658143b9391776e489d7fef.setContent(html_387c3457ba0a1ce5efaa4b17a61ea765);
+        
+
+        marker_fa31386ed90a6e70413c4368fbe78b97.bindPopup(popup_fa4553e25658143b9391776e489d7fef)
+        ;
+
+        
+    
+    
+            marker_fa31386ed90a6e70413c4368fbe78b97.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7292c92bf5be9179f742110628f8ed4e = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_2c47bab73e57668ea8a01127773f793e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7292c92bf5be9179f742110628f8ed4e.setIcon(icon_2c47bab73e57668ea8a01127773f793e);
+        
+    
+        var popup_dd66805cd7a8201cd64025fc7b45176e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c7fa4fb8b56612478f97f132136945db = $(`<div id="html_c7fa4fb8b56612478f97f132136945db" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 19:09:46<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_dd66805cd7a8201cd64025fc7b45176e.setContent(html_c7fa4fb8b56612478f97f132136945db);
+        
+
+        marker_7292c92bf5be9179f742110628f8ed4e.bindPopup(popup_dd66805cd7a8201cd64025fc7b45176e)
+        ;
+
+        
+    
+    
+            marker_7292c92bf5be9179f742110628f8ed4e.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6662b70daa378f28ab1bf3a108c75abb = L.marker(
+                [38.63673552278936, -90.26244613703265],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_145b0b05b92f96b06995efa328975396 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6662b70daa378f28ab1bf3a108c75abb.setIcon(icon_145b0b05b92f96b06995efa328975396);
+        
+    
+        var popup_5cfa0f9afef64a2af85469c550bd4aae = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4a14e989c61658a4ad3d9df94b44b0b0 = $(`<div id="html_4a14e989c61658a4ad3d9df94b44b0b0" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 19:17:53<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_5cfa0f9afef64a2af85469c550bd4aae.setContent(html_4a14e989c61658a4ad3d9df94b44b0b0);
+        
+
+        marker_6662b70daa378f28ab1bf3a108c75abb.bindPopup(popup_5cfa0f9afef64a2af85469c550bd4aae)
+        ;
+
+        
+    
+    
+            marker_6662b70daa378f28ab1bf3a108c75abb.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_227eb2462c0194fe8e98d07b404f5aea = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_cbf55b60ee9433ce063e0662ec75453b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_227eb2462c0194fe8e98d07b404f5aea.setIcon(icon_cbf55b60ee9433ce063e0662ec75453b);
+        
+    
+        var popup_8ceee3e2937834312a6cc1bf5bed4890 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_60201cb586d13af2d316d19d61ac3994 = $(`<div id="html_60201cb586d13af2d316d19d61ac3994" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 19:22:11<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_8ceee3e2937834312a6cc1bf5bed4890.setContent(html_60201cb586d13af2d316d19d61ac3994);
+        
+
+        marker_227eb2462c0194fe8e98d07b404f5aea.bindPopup(popup_8ceee3e2937834312a6cc1bf5bed4890)
+        ;
+
+        
+    
+    
+            marker_227eb2462c0194fe8e98d07b404f5aea.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f86f7bacd5b1722edaa84634e92eace1 = L.marker(
+                [38.636082875083865, -90.26238970040237],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_94320685dc89906fc9ac7fb904603b76 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f86f7bacd5b1722edaa84634e92eace1.setIcon(icon_94320685dc89906fc9ac7fb904603b76);
+        
+    
+        var popup_25dbdfa9413e8122022862f9fcc332b5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_00627ab682b88ca8b165eff90037630b = $(`<div id="html_00627ab682b88ca8b165eff90037630b" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 19:37:58<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_25dbdfa9413e8122022862f9fcc332b5.setContent(html_00627ab682b88ca8b165eff90037630b);
+        
+
+        marker_f86f7bacd5b1722edaa84634e92eace1.bindPopup(popup_25dbdfa9413e8122022862f9fcc332b5)
+        ;
+
+        
+    
+    
+            marker_f86f7bacd5b1722edaa84634e92eace1.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6cae07196febec4c9ce608440c9f3614 = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_b61a2d897ccc1248d76abb7107e91feb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6cae07196febec4c9ce608440c9f3614.setIcon(icon_b61a2d897ccc1248d76abb7107e91feb);
+        
+    
+        var popup_6ad65572bb79ffe93a2e787d7004a0ae = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bd8a108b537c86e668c56ce1efd1b05b = $(`<div id="html_bd8a108b537c86e668c56ce1efd1b05b" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 19:50:22<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_6ad65572bb79ffe93a2e787d7004a0ae.setContent(html_bd8a108b537c86e668c56ce1efd1b05b);
+        
+
+        marker_6cae07196febec4c9ce608440c9f3614.bindPopup(popup_6ad65572bb79ffe93a2e787d7004a0ae)
+        ;
+
+        
+    
+    
+            marker_6cae07196febec4c9ce608440c9f3614.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1937db3b94baa41b775192aa77a38662 = L.marker(
+                [38.63610963252551, -90.2625018958739],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_12618977bd426621ef93fcc1f27d28c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1937db3b94baa41b775192aa77a38662.setIcon(icon_12618977bd426621ef93fcc1f27d28c5);
+        
+    
+        var popup_d9d8448741900a893f21e3430a9f7511 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_447165d632b53590a875e5ad2fb5a3ea = $(`<div id="html_447165d632b53590a875e5ad2fb5a3ea" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 20:05:09<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_d9d8448741900a893f21e3430a9f7511.setContent(html_447165d632b53590a875e5ad2fb5a3ea);
+        
+
+        marker_1937db3b94baa41b775192aa77a38662.bindPopup(popup_d9d8448741900a893f21e3430a9f7511)
+        ;
+
+        
+    
+    
+            marker_1937db3b94baa41b775192aa77a38662.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8d3638ad8ca5abb0d4da7b66f66d37cb = L.marker(
+                [38.63750304202563, -90.26359560617705],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_a69483dca760438cbcd19f9a1d3dc0c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8d3638ad8ca5abb0d4da7b66f66d37cb.setIcon(icon_a69483dca760438cbcd19f9a1d3dc0c8);
+        
+    
+        var popup_1cd7636c4463a78242ecc8ad068e15b6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b54acba5c87aa1f22ca08b8d8be4a7a8 = $(`<div id="html_b54acba5c87aa1f22ca08b8d8be4a7a8" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 20:18:34<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_1cd7636c4463a78242ecc8ad068e15b6.setContent(html_b54acba5c87aa1f22ca08b8d8be4a7a8);
+        
+
+        marker_8d3638ad8ca5abb0d4da7b66f66d37cb.bindPopup(popup_1cd7636c4463a78242ecc8ad068e15b6)
+        ;
+
+        
+    
+    
+            marker_8d3638ad8ca5abb0d4da7b66f66d37cb.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5d108eb5e1d2f0a67a3f12cf7c175c5b = L.marker(
+                [38.636135529992515, -90.26261431465385],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_54b57ad3c56219f33e5e273d196a0f3e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5d108eb5e1d2f0a67a3f12cf7c175c5b.setIcon(icon_54b57ad3c56219f33e5e273d196a0f3e);
+        
+    
+        var popup_a038375f6ee0535d6342d957379c2385 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d304d03d77a0d32939b4d1c423fa64e7 = $(`<div id="html_d304d03d77a0d32939b4d1c423fa64e7" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 20:37:44<br>User stayed 5 minutes in Census Tract 1186</div>`)[0];
+            popup_a038375f6ee0535d6342d957379c2385.setContent(html_d304d03d77a0d32939b4d1c423fa64e7);
+        
+
+        marker_5d108eb5e1d2f0a67a3f12cf7c175c5b.bindPopup(popup_a038375f6ee0535d6342d957379c2385)
+        ;
+
+        
+    
+    
+            marker_5d108eb5e1d2f0a67a3f12cf7c175c5b.bindTooltip(
+                `<div>
+                     Census Tract 1186
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3f1c017921224fe06bd2e44a3350d89a = L.marker(
+                [38.6379359487797, -90.26281272748147],
+                {}
+            ).addTo(map_6346096cc79c113391cf8945ce6d33aa);
+        
+    
+            var icon_2ed14a5a515caa767d26e4871e17ab11 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bell", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3f1c017921224fe06bd2e44a3350d89a.setIcon(icon_2ed14a5a515caa767d26e4871e17ab11);
+        
+    
+        var popup_809fbd326b3db480700c74bf52ce0bfb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8b7e95a35ba2fe13e35aa94c89ac7f9c = $(`<div id="html_8b7e95a35ba2fe13e35aa94c89ac7f9c" style="width: 100.0%; height: 100.0%;">Device: 3306e231-93de-42d0-8c90-36f941198f0e<br>Time: 2025-04-16 21:02:09<br>User stayed 5 minutes in Census Tract 1124</div>`)[0];
+            popup_809fbd326b3db480700c74bf52ce0bfb.setContent(html_8b7e95a35ba2fe13e35aa94c89ac7f9c);
+        
+
+        marker_3f1c017921224fe06bd2e44a3350d89a.bindPopup(popup_809fbd326b3db480700c74bf52ce0bfb)
+        ;
+
+        
+    
+    
+            marker_3f1c017921224fe06bd2e44a3350d89a.bindTooltip(
+                `<div>
+                     Census Tract 1124
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
