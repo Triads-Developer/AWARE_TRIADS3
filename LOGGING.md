@@ -154,10 +154,8 @@ This ensures **each unique event is logged once**, even across app sessions.
 ---
 
 ## 📬 Contact
-
 Questions, suggestions?
-
-📧 **Reach us at:** [A&S Triads Developers <triads.developers@wustl.edu>]  
+📧 **Reach us at:** A&S Triads Developers <triads.developers@wustl.edu>  
 🔗 **Repository:** [https://github.com/Triads-Developer/AWARE_TRIADS3](https://github.com/Triads-Developer/AWARE_TRIADS3)
 
 ---
