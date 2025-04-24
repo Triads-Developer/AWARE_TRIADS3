@@ -281,13 +281,13 @@ class LocationHandler: NSObject, CLLocationManagerDelegate, UNUserNotificationCe
         }
     }
 
-    // MARK: - Log Notification Event (Copied from AppDelegate)
-    // MARK: - Log and Sync Notification Events Immediately
-    // MARK: - Improved Log and Sync Function (Formatted for DB Structure)
+    // Log Notification Event (Copied from AppDelegate)
+    // Log and Sync Notification Events Immediately
+    //  Improved Log and Sync Function (Formatted for DB Structure)
     // Define a Set to track recently logged events (Prevent duplicates)
     private var recentLogs: Set<String> = []
 
-    // MARK: - Improved Log and Sync Function (Formatted for DB Structure)
+    //  Improved Log and Sync Function (Formatted for DB Structure)
     func logNotificationEvent(
         event: String,
         identifier: String,
@@ -408,7 +408,7 @@ class LocationHandler: NSObject, CLLocationManagerDelegate, UNUserNotificationCe
         }
     }
 
-    // MARK: - Handle Notifications Ignored (Expired After 15 min)
+    //Handle Notifications Ignored (Expired After 15 min)
     func checkIfNotificationIgnored(_ identifier: String) {
         UNUserNotificationCenter.current().getDeliveredNotifications { notifications in
             let stillDelivered = notifications.contains { $0.request.identifier == identifier }
@@ -465,7 +465,7 @@ class LocationHandler: NSObject, CLLocationManagerDelegate, UNUserNotificationCe
     }
 
 
-    // MARK: - Handle Delivered Notifications (When User Receives It)
+    // Handle Delivered Notifications (When User Receives It)
     @objc(userNotificationCenter:willPresentNotification:withCompletionHandler:)
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -505,7 +505,7 @@ class LocationHandler: NSObject, CLLocationManagerDelegate, UNUserNotificationCe
 
 
 
-    // MARK: - Handle User Interaction with Notification
+    // Handle User Interaction with Notification
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
