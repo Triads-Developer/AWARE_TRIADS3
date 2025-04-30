@@ -1,25 +1,45 @@
-## 📱 AWARE Mobile Sensing App – Emotion and Behavior Study
+# 📱 AWARE Mobile Sensing App – Emotion and Behavior Study
 
-The AWARE Mobile Sensing App - Emotion and Behavior Study plans to use the mobile sensing app AWARE (https://awareframework.com/) to collect data from participants next semester while using a different app to send them surveys to their phones every two hours. AWARE is an open source software that enables the project to collect data such as GPS, activity, phone use, etc. The project wants to then look at how emotion and emotion regulation are related to these passively sensed contextual features.
+The **AWARE Mobile Sensing App – Emotion and Behavior Study** uses a customized version of the open-source [AWARE Framework](https://awareframework.com/) to passively collect mobile sensor data and deliver automated surveys to participants. The study focuses on understanding how **emotion** and **emotion regulation** relate to everyday behaviors, location patterns, and digital activity.
 
-This project builds on the open-source [AWARE Framework](https://awareframework.com/) and introduces **enhanced notification logic**, **location-based triggers**, and **centralized logging**, enabling researchers to better time and contextualize survey delivery.
+This customized version includes advanced features such as **context-aware notification delivery**, **geofence-based triggers**, **notification expiration**, and **centralized logging**, allowing for more precise survey timing and improved data quality.
 
 ---
+
 ## 🧠 Research Background
 
-Our research team studies the relationship between **emotion**, **emotion regulation**, and **contextual behavior**. In a previous study with 200 undergraduate participants, we used the AWARE app to collect mobile sensor data (e.g., location, activity, phone usage).
+Our research examines the interplay between emotion, regulation strategies, and environmental context. In prior studies with over 200 undergraduate participants, we used mobile sensing to collect passive data on:
+- GPS and mobility patterns
+- Physical activity and motion
+- Phone and app usage
 
-This updated version introduces **automated survey prompts** via notifications—sent every two hours (randomized) or when users spend significant time in a specific location—allowing for fine-grained analysis of emotional regulation in daily life.
+In this new phase, participants will receive **automated survey prompts**:
+- Randomly, four times per day
+- **AND** when they remain in a defined neighborhood for 5 or more minutes
+
+This enables us to observe how emotional experiences unfold within real-world contexts.
 
 ---
 
 ## 🔍 Key Features
 
-- **🔔 Scheduled Notifications**: Participants receive surveys at randomized intervals during waking hours (4 time windows/day × 7 days).
-- **📍 Location-Triggered Surveys**: Notifications are sent when users spend ≥5 minutes in a designated neighborhood.
-- **🧾 Logging System**: All notification interactions (scheduled, delivered, opened, ignored) are logged with time, location, and category.
-- **🌐 GeoJSON Integration**: Supports custom geofencing boundaries defined by neighborhood polygons.
-- **📡 Secure Sync**: Logs are sent to an AWARE server instance for secure storage and analysis.
+- **🔔 Scheduled Notifications**  
+  Surveys are sent randomly during four daily time windows (morning, midday, afternoon, evening) across a 7-day period.
+
+- **📍 Location-Triggered Prompts**  
+  If participants remain within a geofenced neighborhood for ≥5 minutes, a location-based survey notification is triggered.
+
+- **🕓 Notification Expiration Logic**  
+  Unopened notifications expire after 90 seconds and are automatically logged and removed to reduce clutter and improve accuracy.
+
+- **🧾 Centralized Event Logging**  
+  All notification events—including sent, delivered, tapped, ignored, and expired—are logged with timestamp, location, and type.
+
+- **🌐 GeoJSON Integration**  
+  Uses a `Neighborhoods-4.geojson` file to define custom polygon boundaries for neighborhood geofencing.
+
+- **📡 Secure Syncing**  
+  Logged data is transmitted to a secure AWARE server for storage and post-study analysis.
 
 ---
 
@@ -27,47 +47,65 @@ This updated version introduces **automated survey prompts** via notifications�
 
 ### For Participants
 
-1. **Download the App**  
-   - Android: [Google Play Store](https://play.google.com)  
-   - iOS: Custom app provided for iPhone users.
+1. **Download the App**
+   - **Android**: Available on the Google Play Store
+   - **iOS**: Distributed via TestFlight or direct install
 
-2. **Consent to Notifications & Location Access**  
-   Participants must enable both permissions and agree to receive:
-   - Surveys every two hours (via push notifications)
-   - Occasional location-based surveys
+2. **Enable Permissions**
+   - Allow **Location Access** (Always)
+   - Allow **Push Notifications**
+   - Consent to participation in the study
 
-3. **Keep the App Running**  
-   The app passively collects data in the background and automatically logs contextual behaviors.
+3. **Keep the App Running**
+   - The app collects sensor data and sends/receives notifications automatically in the background.
 
 ---
 
 ## 🔐 Data Privacy & Ethics
 
-- All collected data is **anonymized** using a secure device ID.
-- Participants may withdraw at any time.
-- Survey responses and sensor data are stored securely and handled in compliance with institutional review board (IRB) protocols.
+- All data is **anonymized** and tied to a randomly generated device ID.
+- Participants can withdraw at any time without penalty.
+- Survey and sensor data are stored on a secure, university-managed AWARE server.
+- All research procedures comply with approved **IRB protocols**.
 
 ---
 
 ## 📊 Data Analysis Plan
 
-Sensor streams will be combined with survey data and analyzed using **machine learning algorithms** to uncover relationships among:
-- Physical activity
-- Social interaction
+After collection, the dataset will be used to analyze links between emotional states and behavioral context using statistical models and machine learning. We will focus on:
+- Emotion regulation strategies
+- Physical and social activity levels
+- Contextual behavioral changes across time and space
 
 ---
 
 ## 💻 For Developers
 
-This app includes enhanced logging and survey scheduling features:
-AppDelegate.swift            → Schedules random survey notifications and handles iOS launch/config
-Location_Fused2.swift        → Tracks GPS, identifies neighborhood stay duration, triggers location-based alerts
-NotificationLogger.swift     → Deduplicates and formats event logs for delivery to AWARE server
-Neighborhoods-4.geojson      → GeoJSON file for neighborhood polygon boundaries
+This version extends the AWARE iOS client to support:
+
+| File / Component             | Description |
+|-----------------------------|-------------|
+| `AppDelegate.swift`         | Handles app launch, schedules randomized notifications |
+| `LocationHandler.swift`     | Tracks geofence entry, enforces 5-minute dwell condition |
+| `NotificationLogger.swift`  | Centralized logging of all notification events |
+| `Neighborhoods-4.geojson`   | Defines geographic polygons for location-based triggering |
+| `AWAREEventLogger.swift`    | Logs expiration and interaction events to local DB |
+
+---
+
+## 🤝 Contributing & Contact
+
+We welcome collaboration from researchers, developers, and institutions interested in mobile sensing and emotion research.
+
+**Contact us at:** [A&S Triads Developers <triads.developers@wustl.edu>]  
+Let us know if you’d like to:
+- Contribute to the app or study design
+- Reuse the platform for your own studies
+- Collaborate on data analysis or interpretation
+
+![AWARE Framework](https://blogs.unimelb.edu.au/aware-light/files/2020/10/image-10.png)
+
+---
 
 
-### Contributing
-
-If you are interested in contributing to the study or have any questions, please contact the project at [email address]. They welcome collaborations with researchers and institutions interested in understanding the relationship between behavior patterns and emotion regulation
-<img src="https://blogs.unimelb.edu.au/aware-light/files/2020/10/image-10.png" alt="Alt text" title="Optional title"> 
 
